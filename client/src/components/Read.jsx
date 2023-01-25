@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Read = () => {
 const [data,setData] = useState([]);
@@ -22,6 +23,17 @@ const deleteItem=(id)=>{
     getData()
 })
 }  
+const handleUpdate=(ele)=>{
+    localStorage.setItem('firstName',ele.firstName)
+    localStorage.setItem('lastName',ele.lastName)
+    localStorage.setItem('age',ele.age)
+    localStorage.setItem('email',ele.email)
+    localStorage.setItem('password',ele.password)
+    localStorage.setItem('id',ele._id)
+
+}
+
+
 useEffect(()=>{
         getData()
     },[])
@@ -40,14 +52,18 @@ useEffect(()=>{
   {
 data.map((ele)=>{
 return(
-  <tbody>
+  <tbody key={ele._id}>
     <tr>
       <th scope="row"></th>
       <td>{ele.firstName}</td>
       <td>{ele.lastName}</td>
       <td>{ele.age}</td>
       <td>{ele.email}</td>
-      <td><button className="btn btn-success" >Edit</button></td>
+      <td>
+        <Link to="/update">
+        <button className="btn btn-success" onClick={()=>handleUpdate(ele)}>Edit</button>
+      </Link>
+        </td>
       <td><button className="btn btn-danger" onClick={() =>deleteItem(ele._id)}>Delete</button></td>
     </tr>
   </tbody>
