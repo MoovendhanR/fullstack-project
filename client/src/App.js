@@ -1,9 +1,10 @@
 import './App.css';
+import Create from './components/Create';
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello world</h1>
+    <div className="container">
+      <Create/>
     </div>
   );
 }
