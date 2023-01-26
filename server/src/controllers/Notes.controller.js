@@ -1,4 +1,5 @@
 const express = require('express');
+const uploads = require('../middlewares/upload.js');
 const Notes = require('../models/Note.model.js');
 const router =express.Router();
 
@@ -12,9 +13,15 @@ router.get("/",async(req, res)=>{
 })
 
 
-router.post("/",async(req, res)=>{
+router.post("/",uploads.single("profilePic"),async(req, res)=>{
     try{
-         const note = await Notes.create(req.body);
+        console.log(req.body);
+         const note = await Notes.create({
+             title: req.body.title,
+            //  notes: req.body.notes,
+            //  category: req.body.category,
+             profilePic:req.file.path,
+         });
          res.status(200).send({note: note});
     }catch(err){
         res.status(500).send({message: err.message});
@@ -42,7 +49,7 @@ router.patch("/:id",async(req, res)=>{
 router.delete("/:id",async(req, res)=>{
     try{
          const note = await Notes.findByIdAndDelete(req.params.id).lean().exec();
-         res.status(200).send({note: note});
+        res.status(200).send({note: note});
     }catch(err){
         res.status(500).send({message: err.message});
     }
