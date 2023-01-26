@@ -30,6 +30,22 @@ router.get("/:id",async(req, res)=>{
 })
 
 
+router.patch("/:id",async(req, res)=>{
+    try{
+         const note = await Notes.findByIdAndUpdate(req.params.id,req.body,{new:true}).lean().exec();
+         res.status(200).send({note: note});
+    }catch(err){
+        res.status(500).send({message: err.message});
+    }
+})
 
+router.delete("/:id",async(req, res)=>{
+    try{
+         const note = await Notes.findByIdAndDelete(req.params.id).lean().exec();
+         res.status(200).send({note: note});
+    }catch(err){
+        res.status(500).send({message: err.message});
+    }
+})
 
 module.exports = router;
