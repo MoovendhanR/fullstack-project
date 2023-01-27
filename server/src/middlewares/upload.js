@@ -38,7 +38,7 @@ const storage = multer.diskStorage({
 
 const options = {
     storage:storage,
-    // fileFilter:fileFilter,
+    fileFilter:fileFilter,
     Limits:{
         fileSize:1024 * 1024 * 1024 * 5,
     },
