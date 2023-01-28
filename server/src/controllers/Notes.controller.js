@@ -18,8 +18,8 @@ router.post("/",uploads.single("profilePic"),async(req, res)=>{
         console.log(req.body);
          const note = await Notes.create({
              title: req.body.title,
-            //  notes: req.body.notes,
-            //  category: req.body.category,
+             notes: req.body.notes,
+             category: req.body.category,
              profilePic:req.file.path,
          });
          res.status(200).send({note: note});
