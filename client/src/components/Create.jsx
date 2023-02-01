@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +11,7 @@ const Create = () => {
    const [age,setAge] = useState("");
    const [email,setEmail] = useState("");
    const [password,setPassword] = useState("");
+   const Navigate = useNavigate()
 
   //  const header = {"Access-Control-Allow-Origin":"*"}
 
@@ -22,7 +24,7 @@ const Create = () => {
            email:email,
            password:password,
 
-    })
+    }).then(()=>Navigate("/read"))
   }
 
 
