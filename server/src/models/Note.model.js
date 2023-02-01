@@ -5,7 +5,12 @@ const notesSchema =new mongoose.Schema({
        title:{type:String,required:true},
        notes:{type:String,required:true},
        category:{type:String,required:true},
-       profilePic:[{type:String,required:false}],
+    //    profilePic:[{type:String,required:false}],
+       userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user",
+        required:true
+       }
 
 },{
     versionKey:false,

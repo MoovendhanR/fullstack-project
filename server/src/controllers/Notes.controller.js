@@ -5,7 +5,10 @@ const router =express.Router();
 
 router.get("/",async(req, res)=>{
     try{
-         const notes = await Notes.find().lean().exec();
+         const notes = await Notes.find()
+         .populate("userId")
+         .lean()
+         .exec();
          res.status(200).send({notes: notes});
     }catch(err){
         res.status(500).send({message: err.message});
@@ -13,20 +16,31 @@ router.get("/",async(req, res)=>{
 })
 
 
-router.post("/",uploads.single("profilePic"),async(req, res)=>{
+// router.post("/",uploads.single("profilePic"),async(req, res)=>{
+//     try{
+//         console.log(req.body);
+//          const note = await Notes.create({
+//              title: req.body.title,
+//              notes: req.body.notes,
+//              category: req.body.category,
+//              profilePic:req.file.path,
+//          });
+//          res.status(200).send({note: note});
+//     }catch(err){
+//         res.status(500).send({message: err.message});
+//     }
+// })
+router.post("/",async(req, res)=>{
     try{
-        console.log(req.body);
-         const note = await Notes.create({
-             title: req.body.title,
-             notes: req.body.notes,
-             category: req.body.category,
-             profilePic:req.file.path,
-         });
+         const note = await Notes.create(req.body);
          res.status(200).send({note: note});
     }catch(err){
         res.status(500).send({message: err.message});
     }
 })
+
+
+
 router.get("/:id",async(req, res)=>{
     try{
          const note = await Notes.findById(req.params.id).lean().exec();
