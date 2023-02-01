@@ -3,7 +3,8 @@ const mongoose= require("mongoose");
 const cors=require("cors");
 const connect = require("./config/db");
 const userController = require("./controllers/User.controller.js")
-const notesController = require("./controllers/Notes.controller.js")
+const notesController = require("./controllers/Notes.controller.js");
+const authenticate = require("./middlewares/authenticate.middleware");
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/users",userController)
+app.use(authenticate)
 app.use("/notes",notesController)
 
 
