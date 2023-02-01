@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -37,6 +37,8 @@ const CreateNote=()=>{
     //  .catch(err=>console.log(err))
     return(
         <>
+           <Link to="/allnotes"><button>AllNotes</button></Link>
+
            <h1>this is CreateNote page</h1>
            <input type="text" placeholder="Enter title"value={title}onChange={(e)=>setTitle(e.target.value)}/>
            <input type="text" placeholder="Enter note" value={notes} onChange={(e)=>setNote(e.target.value)}/>
