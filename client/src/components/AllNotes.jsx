@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 import "../App.css"
 
@@ -42,7 +43,7 @@ function GetNotes(){
   return(
     <>
     <center>
-
+<Link to="/createnote"><button>CreateNotes</button></Link>
       <h1>All Notes</h1>
       {notes?notes.map((note)=>{
         return(
