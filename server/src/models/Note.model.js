@@ -6,9 +6,10 @@ const notesSchema =new mongoose.Schema({
        notes:{type:String,required:true},
        category:{type:String,required:true},
     //    profilePic:[{type:String,required:false}],
-       userId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"user",
+       userID:{
+        // type:mongoose.Schema.Types.ObjectId,
+        // ref:"user",
+        type:String,
         required:true
        }
 
