@@ -83,14 +83,14 @@ const Register=()=>{
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <HStack>
+            {/* <HStack> */}
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>Name</FormLabel>
                   <Input type="text" value={name} onChange={(e)=>setName(e.target.value)} />
                 </FormControl>
               </Box>
-            </HStack>
+            {/* </HStack> */}
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
               <Input type="email"value={email}onChange={(e)=>setEmail(e.target.value)} />

@@ -12,6 +12,7 @@ import {
   Button,
   Heading,
   useColorModeValue,
+  Container,
 } from '@chakra-ui/react';
 
 
@@ -51,7 +52,7 @@ const Login=()=>{
     //  .then(res=>console.log(res))
     //  .catch(err=>console.log(err))
     return(
-        <>
+        <Container>
            {/* <h1>this is Login page</h1>
            <input type="text" placeholder="Enter email" value={email}onChange={(e)=>setEmail(e.target.value)}/>
            <input type="password" placeholder="Enter password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
@@ -104,7 +105,7 @@ const Login=()=>{
         </Box>
       </Stack>
     </Flex>
-        </>
+        </Container>
     )
 }
 
