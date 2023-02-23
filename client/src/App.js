@@ -1,5 +1,6 @@
 import './App.css';
 import AllRoutes from './components/AllRoutes';
+import Navbar from './components/Navbar';
 
 // import Create from './components/Create';
 // import Read from './components/Read';
@@ -7,14 +8,14 @@ import AllRoutes from './components/AllRoutes';
 
 function App() {
   return (
-    <div className="container">
+    <div >
          {/* <Routes>
           <Route path="/create" element={<Create/>} />
           <Route path="/read" element={<Read/>} />
           <Route path="/update" element={<Update/>} />
 
          </Routes> */}
-
+         <Navbar/>
        <AllRoutes/>
     </div>
   );
