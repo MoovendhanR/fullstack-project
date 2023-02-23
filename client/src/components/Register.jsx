@@ -41,6 +41,7 @@ const Register=()=>{
            <input type="password" placeholder="Enter password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
            <input type="text" placeholder="Enetr age" value={age} onChange={(e)=>setAge(e.target.value)}/>
            <button onClick={handleSubmit}>Submit</button>
+           
         </>
     )
 }
