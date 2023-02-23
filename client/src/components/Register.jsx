@@ -83,8 +83,7 @@ const Register=()=>{
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            {/* <HStack> */}
-              <Box>
+               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>Name</FormLabel>
                   <Input type="text" value={name} onChange={(e)=>setName(e.target.value)} />

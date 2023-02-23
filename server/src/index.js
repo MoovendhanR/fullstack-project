@@ -18,11 +18,6 @@ app.use(authenticate)
 app.use("/notes",notesController)
 
 
-
-
-
-
-
 mongoose.set("strictQuery",false)
 app.listen(5000,async()=>{
   await connect();
